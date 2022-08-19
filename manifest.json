@@ -1,6 +1,6 @@
 {
-  "name": "youtube minimizer",
-  "description": "動画を見る時間が10分の1になる",
+  "name": "youtube rappid",
+  "description": "忙しくてyoutubeを見る時間が取れない。そんな時でもyoutube rappidを使えば、たくさんの動画を見れる。なぜなら、動画を短時間で完全に理解できるから。",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
