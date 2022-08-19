@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="popup.css">
   </head>
-  <body>
-    <button id="changeColor"></button>
+  <body class="popup_body">
+    <h1 class="popup__name">
+      Youtube minimizer
+    </h1>
+    <div clsss="popup__icon-wrapper">
+      <img src="/images/icon128.png" class="popup__icon">
+    </div>
+    <label class="popup__switch">
+      <input type="checkbox" id="toggleSwitch" class="popup__switch-input" checked>
+      <span class="popup__switch-slider"></span>
+    </label>
+    <p id="activated-checker">
+    </p>
     <script src="popup.js"></script>
   </body>
 </html>

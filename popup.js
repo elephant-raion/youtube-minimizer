@@ -1,21 +1,18 @@
-let changeColor = document.getElementById('changeColor');
+const toggleSwitch = document.getElementById('toggleSwitch');
 
-chrome.storage.sync.get('color', ({ color }) => {
-  changeColor.style.background = color;
-});
+if (toggleSwitch) {
+  toggleSwitch.addEventListener('click', async () => {
+    let activated;
+    if (toggleSwitch.checked) {
+      activated = true;
 
-
-changeColor.addEventListener('click', async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: setPageBackgroundColor,
-  });
-});
-
-function setPageBackgroundColor() {
-  chrome.storage.sync.get('color', ({ color }) => {
-    document.body.style.backgroundColor = color;
-  });
+    } else {
+      activated = false;
+    }
+    chrome.storage.sync.set({ activated });
+    chrome.storage.sync.get('activated', (data) => {
+      let activatedChecker = document.getElementById("activated-checker");
+      activatedChecker.innerHTML = data.activated
+    });
+  })
 }
