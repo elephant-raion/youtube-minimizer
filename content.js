@@ -1,5 +1,4 @@
 chrome.storage.sync.get("activated", ({ activated }) => {
-  console.log(activated);
   if (activated) {
     let video = document.querySelector("video");
 
@@ -7,6 +6,15 @@ chrome.storage.sync.get("activated", ({ activated }) => {
       chrome.storage.sync.get("PLAYBACK_RATE", ({ PLAYBACK_RATE }) => {
         video.playbackRate = PLAYBACK_RATE;
       });
+
+      setInterval(() => {
+        if (
+          video.currentTime > video.duration / 10 &&
+          video.currentTime < (video.duration * 9) / 10
+        ) {
+          video.currentTime = (video.duration * 9) / 10;
+        }
+      }, 1000);
     }
   }
 });
